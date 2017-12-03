@@ -1,3 +1,4 @@
+us1 = User.create(:email => 'admin@swift.com' , :password => '123456', :admin => 1)
 require 'csv'
 
 puts "Importing skills..."
