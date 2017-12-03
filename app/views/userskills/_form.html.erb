@@ -1,0 +1,29 @@
+<%= form_for(userskill) do |f| %>
+  <% if userskill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(userskill.errors.count, "error") %> prohibited this userskill from being saved:</h2>
+
+      <ul>
+      <% userskill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :skill_name %>
+    <%= f.text_field :skill_name, data: {autocomplete_source: skills_path} %>
+
+
+  </div>
+
+  <div class="field">
+    <%= f.label :"Useing Since" %>
+    <%= f.select :lastd, options_for_select(%w[LessThen_1_Year 3Years 5Years 7Years  More_Then_10_Years]) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
